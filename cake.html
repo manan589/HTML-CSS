@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Animated Cake</title>
+<style>
+  body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: #f7e9f0;
+    font-family: sans-serif;
+  }
+
+  .cake {
+    position: relative;
+    width: 220px;
+  }
+
+  /* Plate */
+  .plate {
+    width: 260px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -10px;
+    left: -20px;
+  }
+
+  /* Cake layers */
+  .layer {
+    width: 220px;
+    height: 60px;
+    background: #d18b47;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: inset 0 -8px rgba(0,0,0,0.1);
+  }
+
+  .layer.middle {
+    margin-top: -10px;
+    background: #c97a3d;
+  }
+
+  .layer.top {
+    margin-top: -10px;
+    background: #b86a34;
+  }
+
+  /* Frosting */
+  .frosting {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    background: #fff;
+    border-radius: 10px 10px 20px 20px;
+  }
+
+  .drip {
+    position: absolute;
+    width: 18px;
+    height: 25px;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    top: 15px;
+  }
+
+  .drip:nth-child(1) { left: 30px; height: 30px; }
+  .drip:nth-child(2) { left: 90px; }
+  .drip:nth-child(3) { left: 150px; height: 35px; }
+
+  /* Candle */
+  .candle {
+    position: absolute;
+    width: 10px;
+    height: 35px;
+    background: repeating-linear-gradient(
+      45deg,
+      #ff6b6b,
+      #ff6b6b 4px,
+      #fff 4px,
+      #fff 8px
+    );
+    top: -35px;
+    left: 105px;
+    border-radius: 3px;
+  }
+
+  .flame {
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ffd93d 30%, #ff9f1c 70%);
+    border-radius: 50% 50% 50% 50%;
+    transform-origin: center bottom;
+    animation: flicker 0.15s infinite alternate;
+  }
+
+  @keyframes flicker {
+    0% {
+      transform: scale(1) rotate(-2deg);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1.1) rotate(2deg);
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="cake">
+  <div class="candle">
+    <div class="flame"></div>
+  </div>
+
+  <div class="layer top">
+    <div class="frosting">
+      <div class="drip"></div>
+      <div class="drip"></div>
+      <div class="drip"></div>
+    </div>
+  </div>
+
+  <div class="layer middle"></div>
+  <div class="layer"></div>
+
+  <div class="plate"></div>
+</div>
+
+</body>
+</html>
